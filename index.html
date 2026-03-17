@@ -1,0 +1,257 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Java 面试冲刺指南</title>
+  <style>
+    :root {
+      --bg: #0b1020;
+      --card: rgba(255, 255, 255, 0.08);
+      --border: rgba(255, 255, 255, 0.18);
+      --text: #e9edf8;
+      --muted: #b8c0d9;
+      --accent: #7c9cff;
+      --accent-2: #4de2c5;
+      --danger: #ff7f9f;
+      --shadow: 0 20px 50px rgba(0, 0, 0, 0.35);
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      font-family: "Inter", "PingFang SC", "Microsoft YaHei", system-ui, -apple-system, sans-serif;
+      color: var(--text);
+      background:
+        radial-gradient(1200px 800px at 80% -10%, #1c2f63 0%, transparent 60%),
+        radial-gradient(800px 500px at -10% 20%, #12384f 0%, transparent 55%),
+        var(--bg);
+      min-height: 100vh;
+      line-height: 1.6;
+    }
+
+    .container {
+      width: min(1120px, 92vw);
+      margin: 0 auto;
+      padding: 48px 0 72px;
+    }
+
+    .hero {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 24px;
+      align-items: stretch;
+    }
+
+    .panel {
+      background: var(--card);
+      border: 1px solid var(--border);
+      backdrop-filter: blur(10px);
+      border-radius: 20px;
+      box-shadow: var(--shadow);
+      padding: 28px;
+    }
+
+    h1 {
+      font-size: clamp(1.8rem, 3vw, 2.8rem);
+      margin: 0 0 12px;
+      line-height: 1.2;
+      letter-spacing: 0.3px;
+    }
+
+    .highlight {
+      color: var(--accent-2);
+      text-shadow: 0 0 24px rgba(77, 226, 197, 0.45);
+    }
+
+    .subtitle {
+      color: var(--muted);
+      margin-bottom: 22px;
+    }
+
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+      margin-top: 8px;
+    }
+
+    .stat {
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 12px;
+      text-align: center;
+      background: rgba(255, 255, 255, 0.04);
+    }
+
+    .stat b {
+      display: block;
+      font-size: 1.4rem;
+      color: var(--accent);
+    }
+
+    .tips-list {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      display: grid;
+      gap: 10px;
+    }
+
+    .tips-list li {
+      padding: 10px 12px;
+      border-radius: 12px;
+      border: 1px dashed rgba(255, 255, 255, 0.28);
+      background: rgba(255, 255, 255, 0.03);
+      color: var(--muted);
+    }
+
+    main {
+      margin-top: 26px;
+      display: grid;
+      gap: 22px;
+    }
+
+    .section-title {
+      font-size: 1.35rem;
+      margin: 0 0 12px;
+      color: #fff;
+    }
+
+    .qa-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 14px;
+    }
+
+    .qa-card {
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 16px;
+      background: rgba(13, 18, 38, 0.66);
+      transition: transform .2s ease, border-color .2s ease;
+    }
+
+    .qa-card:hover {
+      transform: translateY(-3px);
+      border-color: var(--accent);
+    }
+
+    .qa-card h3 {
+      margin: 0 0 8px;
+      font-size: 1rem;
+      color: #fff;
+    }
+
+    .qa-card p {
+      margin: 0;
+      color: var(--muted);
+      font-size: .95rem;
+    }
+
+    .checklist {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 12px;
+    }
+
+    .item {
+      border-left: 3px solid var(--accent-2);
+      background: rgba(255, 255, 255, 0.03);
+      border-radius: 10px;
+      padding: 12px 12px 12px 14px;
+      color: var(--muted);
+    }
+
+    .item strong { color: #fff; }
+
+    .warning {
+      border-left-color: var(--danger);
+    }
+
+    footer {
+      margin-top: 26px;
+      color: var(--muted);
+      text-align: center;
+      font-size: .9rem;
+    }
+
+    @media (max-width: 900px) {
+      .hero {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <section class="hero">
+      <div class="panel">
+        <h1>Java 面试题与<span class="highlight">高通过率</span>实战指南</h1>
+        <p class="subtitle">覆盖后端开发常问考点、标准答题思路与面试前冲刺策略，帮你把“会做”变成“会讲、能拿 offer”。</p>
+        <div class="stats">
+          <div class="stat"><b>30+</b> 高频题型</div>
+          <div class="stat"><b>5 大</b> 能力维度</div>
+          <div class="stat"><b>7 天</b> 冲刺计划</div>
+        </div>
+      </div>
+      <aside class="panel">
+        <h2 class="section-title">面试官最看重什么？</h2>
+        <ul class="tips-list">
+          <li><strong>基础扎实：</strong>JVM、集合、并发、Spring 原理要说出“为什么”。</li>
+          <li><strong>项目深度：</strong>能量化业务结果，讲清你的真实贡献和取舍。</li>
+          <li><strong>问题定位：</strong>遇到线上故障时的排查路径、监控指标与复盘能力。</li>
+          <li><strong>沟通结构：</strong>先结论、再原理、最后案例，避免散点式表达。</li>
+        </ul>
+      </aside>
+    </section>
+
+    <main>
+      <section class="panel">
+        <h2 class="section-title">Java 高频面试题（含回答要点）</h2>
+        <div class="qa-grid">
+          <article class="qa-card">
+            <h3>1) HashMap 为什么线程不安全？</h3>
+            <p>回答时要提到并发扩容、链表/树结构写入竞争与数据覆盖问题，并补充 ConcurrentHashMap 的分段/桶级并发思想。</p>
+          </article>
+          <article class="qa-card">
+            <h3>2) JVM 内存模型与 GC 如何影响性能？</h3>
+            <p>重点描述堆分代、对象晋升、常见 GC 算法与停顿时间（STW）对接口 RT 的影响，再结合调优案例更有说服力。</p>
+          </article>
+          <article class="qa-card">
+            <h3>3) 说一下 Spring AOP 与事务失效场景</h3>
+            <p>必须点出代理机制（JDK/CGLIB）、自调用失效、异常类型与传播行为，展示你对框架“边界条件”的理解。</p>
+          </article>
+          <article class="qa-card">
+            <h3>4) MySQL 索引什么时候会失效？</h3>
+            <p>围绕最左前缀、函数操作、隐式类型转换、范围查询后列失效来讲，并给出 EXPLAIN 分析过程。</p>
+          </article>
+          <article class="qa-card">
+            <h3>5) Redis 缓存击穿/穿透/雪崩如何治理？</h3>
+            <p>分别给出互斥锁、布隆过滤器、随机过期时间与多级缓存方案，强调高并发下的降级与限流策略。</p>
+          </article>
+          <article class="qa-card">
+            <h3>6) 线程池参数怎么设定？</h3>
+            <p>结合 CPU 密集/IO 密集模型说明 corePoolSize 与 queue 策略，能讲拒绝策略与监控报警就是加分项。</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="panel">
+        <h2 class="section-title">提高面试通过率的可执行方法</h2>
+        <div class="checklist">
+          <div class="item"><strong>构建“八股 + 项目”映射：</strong>每个知识点都绑定一个项目场景，回答更真实。</div>
+          <div class="item"><strong>准备 STAR 案例：</strong>至少 3 个难点问题，覆盖性能优化、稳定性、协作推进。</div>
+          <div class="item"><strong>输出标准答题模板：</strong>结论 → 原理 → 方案 → 结果，控制在 1~2 分钟。</div>
+          <div class="item"><strong>模拟面试复盘：</strong>录音回放，修正口头禅、逻辑跳跃与术语不准确问题。</div>
+          <div class="item"><strong>针对 JD 定制：</strong>按岗位关键词准备“必答清单”，减少无效复习。</div>
+          <div class="item warning"><strong>避坑提醒：</strong>不要背诵式回答，遇到不会的问题要“先拆解再给方案”。</div>
+        </div>
+      </section>
+    </main>
+
+    <footer>建议：面试前 24 小时做一次“项目深挖 + 高频快问快答”冲刺，状态会明显提升。</footer>
+  </div>
+</body>
+</html>
